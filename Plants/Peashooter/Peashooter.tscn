@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://bi4x0dwx8ubbm"]
+
+[ext_resource type="Script" path="res://Plants/Peashooter/Peashooter.gd" id="1_csa6h"]
+[ext_resource type="Texture2D" uid="uid://bxmk8gucj7ptx" path="res://Plants/DS DSi - Plants vs Zombies - Peashooter.png" id="1_wptbe"]
+[ext_resource type="Script" path="res://Plants/Peashooter/bullet.gd" id="3_ymc18"]
+
+[sub_resource type="Animation" id="Animation_vp71h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_u0k6o"]
+resource_name = "idle"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_77iyb"]
+_data = {
+"RESET": SubResource("Animation_vp71h"),
+"idle": SubResource("Animation_u0k6o")
+}
+
+[node name="Peashooter" type="Node2D"]
+script = ExtResource("1_csa6h")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_77iyb")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_wptbe")
+hframes = 8
+vframes = 6
+
+[node name="bullet" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_wptbe")
+region_enabled = true
+region_rect = Rect2(77, 42, 12, 13)
+script = ExtResource("3_ymc18")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="bullet"]
+
+[connection signal="screen_exited" from="bullet/VisibleOnScreenNotifier2D" to="bullet" method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfr08rm4t77vh"]
+
+[ext_resource type="Texture2D" uid="uid://dm0stnbtl8p5o" path="res://Zombies/DS DSi - Plants vs Zombies - Zombie.png" id="1_36l7i"]
+[ext_resource type="Script" path="res://Zombies/regular_zombie.gd" id="1_qmil7"]
+
+[sub_resource type="Animation" id="Animation_7ved8"]
+resource_name = "idle"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_7y2tu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_mj3lv"]
+resource_name = "walking"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wgo4c"]
+_data = {
+"RESET": SubResource("Animation_7y2tu"),
+"idle": SubResource("Animation_7ved8"),
+"walking": SubResource("Animation_mj3lv")
+}
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_63mm8"]
+
+[node name="RegularZombie" type="Node2D"]
+script = ExtResource("1_qmil7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "walking"
+libraries = {
+"": SubResource("AnimationLibrary_wgo4c")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_36l7i")
+hframes = 7
+region_enabled = true
+region_rect = Rect2(112, 1, 183, 47)
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_63mm8")
+anim_player = NodePath("../AnimationPlayer")
+active = true
