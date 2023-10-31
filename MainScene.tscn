@@ -354,7 +354,7 @@ polygon = PackedVector2Array(84.6233, 56, 83.5913, 105, 16.5119, 104, 17.5439, 5
 position = Vector2(-312, -79)
 
 [node name="Peashooter2" parent="." instance=ExtResource("10_jgts7")]
-position = Vector2(-394, -74)
+position = Vector2(-309, 19)
 
 [node name="RegularZombie" parent="." instance=ExtResource("11_gru8n")]
 position = Vector2(105, -89)

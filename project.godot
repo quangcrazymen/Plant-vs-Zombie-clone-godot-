@@ -18,3 +18,9 @@ config/icon="res://icon.svg"
 [dotnet]
 
 project/assembly_name="Test Proj"
+
+[layer_names]
+
+3d_physics/layer_1="plant"
+3d_physics/layer_2="zombie"
+3d_physics/layer_3="plant_bullet"

@@ -13,3 +13,8 @@ func _process(delta):
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	print("Bullet has gone out off screen")
 	queue_free()
+
+
+func _on_area_2d_area_entered(area):
+	print("hit the zombie")
+	pass # Replace with function body.
