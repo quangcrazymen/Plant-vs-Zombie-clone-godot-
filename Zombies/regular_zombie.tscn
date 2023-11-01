@@ -8,7 +8,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("WalkingSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -16,6 +16,35 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Eating:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_6b7wu"]
+resource_name = "eating"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eating:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
 }
 
 [sub_resource type="Animation" id="Animation_7ved8"]
@@ -25,7 +54,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("WalkingSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -42,7 +71,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("WalkingSprite:frame")
 tracks/0/interp = 2
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -55,11 +84,10 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wgo4c"]
 _data = {
 "RESET": SubResource("Animation_7y2tu"),
+"eating": SubResource("Animation_6b7wu"),
 "idle": SubResource("Animation_7ved8"),
 "walking": SubResource("Animation_mj3lv")
 }
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_63mm8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x4y1q"]
 radius = 27.0
@@ -78,17 +106,12 @@ libraries = {
 "": SubResource("AnimationLibrary_wgo4c")
 }
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="WalkingSprite" type="Sprite2D" parent="."]
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_36l7i")
 hframes = 7
 region_enabled = true
 region_rect = Rect2(112, 1, 183, 47)
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_63mm8")
-anim_player = NodePath("../AnimationPlayer")
-active = true
 
 [node name="Body" type="Area2D" parent="."]
 collision_layer = 2
@@ -102,6 +125,13 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchPlant"]
 shape = SubResource("CapsuleShape2D_lfjc7")
+
+[node name="Eating" type="Sprite2D" parent="."]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_36l7i")
+hframes = 7
+region_enabled = true
+region_rect = Rect2(301, 4, 216, 44)
 
 [connection signal="area_entered" from="Body" to="." method="_on_body_area_entered"]
 [connection signal="area_entered" from="TouchPlant" to="." method="_on_touch_plant_area_entered"]

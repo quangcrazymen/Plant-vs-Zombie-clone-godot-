@@ -72,6 +72,8 @@ texture = ExtResource("8_lc0b3")
 
 [node name="GridMap" type="Area2D" parent="PcComputer-PlantsVsZombies-Day"]
 visible = false
+collision_layer = 8
+collision_mask = 0
 
 [node name="Tile2" type="CollisionShape2D" parent="PcComputer-PlantsVsZombies-Day/GridMap"]
 position = Vector2(-405.573, -74)
@@ -358,6 +360,7 @@ position = Vector2(-309, 19)
 
 [node name="RegularZombie" parent="." instance=ExtResource("11_gru8n")]
 position = Vector2(105, -89)
+walking_speed = 45
 
 [node name="RegularZombie2" parent="." instance=ExtResource("11_gru8n")]
 position = Vector2(95, 14)
