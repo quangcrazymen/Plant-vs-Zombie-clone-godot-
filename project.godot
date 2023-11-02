@@ -21,6 +21,9 @@ project/assembly_name="Test Proj"
 
 [layer_names]
 
+2d_physics/layer_1="plants"
 3d_physics/layer_1="plant"
+2d_physics/layer_2="zombies"
 3d_physics/layer_2="zombie"
+2d_physics/layer_3="plants_bullet"
 3d_physics/layer_3="plant_bullet"
