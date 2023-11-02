@@ -86,6 +86,8 @@ collision_mask = 2
 position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_xdorg")
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="screen_exited" from="bullet/VisibleOnScreenNotifier2D" to="bullet" method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="area_entered" from="bullet/Area2D" to="bullet" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="PlantBody" to="." method="_on_plant_body_area_entered"]
