@@ -6,9 +6,11 @@ extends Node2D
 @onready var walking_sprite = $WalkingSprite
 @onready var animation_player = $AnimationPlayer
 
+var start_walking:bool
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	eating.visible = false
+	start_walking = true
 	pass # Replace with function body.
 
 
@@ -32,3 +34,14 @@ func stop_and_eat():
 	walking_speed = 0
 	eating.visible = true
 	walking_sprite.visible = false
+
+func start_walking_func():
+	walking_speed = 20
+	eating.visible = false
+	walking_sprite.visible = true
+
+func _on_touch_plant_area_exited(area):
+	start_walking = false
+	start_walking_func()
+	animation_player.play("walking")
+	pass # Replace with function body.

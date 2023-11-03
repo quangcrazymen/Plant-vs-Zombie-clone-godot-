@@ -1,9 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://benm3k1818qmn"]
+[gd_scene load_steps=12 format=3 uid="uid://benm3k1818qmn"]
 
 [ext_resource type="Script" path="res://GridMap.cs" id="2_ue1lu"]
-[ext_resource type="Texture2D" uid="uid://lvlcxoa4dhme" path="res://Particles/ZombieBackupDancerHead.png" id="3_y1ly6"]
 [ext_resource type="Texture2D" uid="uid://bya01jwlnel2v" path="res://PC Computer - Plants vs Zombies - Day.png" id="4_fk0de"]
-[ext_resource type="Script" path="res://ZombieHead.cs" id="5_mvnyu"]
 [ext_resource type="Script" path="res://TestDayTimeScript.cs" id="5_qqyvh"]
 [ext_resource type="Texture2D" uid="uid://bgfu07qfp8qky" path="res://Plants/PC Computer - Plants vs Zombies - Iceshroom.png" id="7_ot8xo"]
 [ext_resource type="Texture2D" uid="uid://cpgjy0u1uqco0" path="res://Plants/PeaShooter.png" id="8_lc0b3"]
@@ -13,13 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://cfr08rm4t77vh" path="res://Zombies/regular_zombie.tscn" id="11_gru8n"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jattw"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_q5ksi"]
-radius = 36.7967
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_hagll"]
-a = Vector2(132, 569)
-b = Vector2(1083, 579)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rnj3t"]
 size = Vector2(83.5914, 90)
@@ -41,27 +32,6 @@ material = SubResource("CanvasItemMaterial_jattw")
 position = Vector2(-434.188, -461.51)
 scale = Vector2(1.44729, 1.38592)
 script = ExtResource("2_ue1lu")
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="PcComputer-PlantsVsZombies-Day"]
-position = Vector2(-701.939, -300.464)
-scale = Vector2(0.969529, 0.928074)
-script = ExtResource("5_mvnyu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PcComputer-PlantsVsZombies-Day/CharacterBody2D"]
-position = Vector2(720, 389)
-shape = SubResource("CircleShape2D_q5ksi")
-
-[node name="ZombieBackupDancerHead" type="Sprite2D" parent="PcComputer-PlantsVsZombies-Day/CharacterBody2D/CollisionShape2D"]
-z_index = 1
-position = Vector2(0.0465088, -12.25)
-texture = ExtResource("3_y1ly6")
-
-[node name="CharacterBody2D2" type="CharacterBody2D" parent="PcComputer-PlantsVsZombies-Day"]
-position = Vector2(-701.939, -300.464)
-scale = Vector2(0.969529, 0.928074)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PcComputer-PlantsVsZombies-Day/CharacterBody2D2"]
-shape = SubResource("SegmentShape2D_hagll")
 
 [node name="PeaShooter" type="Sprite2D" parent="PcComputer-PlantsVsZombies-Day"]
 position = Vector2(-405.263, 32.7147)

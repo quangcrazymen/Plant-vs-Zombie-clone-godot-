@@ -135,3 +135,4 @@ region_rect = Rect2(301, 4, 216, 44)
 
 [connection signal="area_entered" from="Body" to="." method="_on_body_area_entered"]
 [connection signal="area_entered" from="TouchPlant" to="." method="_on_touch_plant_area_entered"]
+[connection signal="area_exited" from="TouchPlant" to="." method="_on_touch_plant_area_exited"]
