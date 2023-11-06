@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bi4x0dwx8ubbm"]
+[gd_scene load_steps=8 format=3 uid="uid://bi4x0dwx8ubbm"]
 
 [ext_resource type="Script" path="res://Plants/Peashooter/Peashooter.gd" id="1_csa6h"]
 [ext_resource type="Texture2D" uid="uid://bxmk8gucj7ptx" path="res://Plants/DS DSi - Plants vs Zombies - Peashooter.png" id="1_wptbe"]
-[ext_resource type="Script" path="res://Plants/Peashooter/bullet.gd" id="3_ymc18"]
+[ext_resource type="PackedScene" uid="uid://bka20wixdlujx" path="res://Plants/Peashooter/peaShooterBullet.tscn" id="3_6j13t"]
 
 [sub_resource type="Animation" id="Animation_vp71h"]
 length = 0.001
@@ -42,14 +42,12 @@ _data = {
 "idle": SubResource("Animation_u0k6o")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tabu3"]
-radius = 5.02494
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdorg"]
 size = Vector2(51, 60)
 
 [node name="Peashooter" type="Node2D"]
 script = ExtResource("1_csa6h")
+bullet = ExtResource("3_6j13t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
@@ -63,22 +61,6 @@ texture = ExtResource("1_wptbe")
 hframes = 8
 vframes = 6
 
-[node name="bullet" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
-texture = ExtResource("1_wptbe")
-region_enabled = true
-region_rect = Rect2(77, 42, 12, 13)
-script = ExtResource("3_ymc18")
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="bullet"]
-
-[node name="Area2D" type="Area2D" parent="bullet"]
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bullet/Area2D"]
-shape = SubResource("CircleShape2D_tabu3")
-
 [node name="PlantBody" type="Area2D" parent="."]
 collision_mask = 2
 
@@ -86,8 +68,8 @@ collision_mask = 2
 position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_xdorg")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="PeashoterTimer" type="Timer" parent="."]
+autostart = true
 
-[connection signal="screen_exited" from="bullet/VisibleOnScreenNotifier2D" to="bullet" method="_on_visible_on_screen_notifier_2d_screen_exited"]
-[connection signal="area_entered" from="bullet/Area2D" to="bullet" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="PlantBody" to="." method="_on_plant_body_area_entered"]
+[connection signal="timeout" from="PeashoterTimer" to="." method="_on_peashoter_timer_timeout"]

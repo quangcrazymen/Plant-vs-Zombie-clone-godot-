@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bka20wixdlujx"]
+
+[ext_resource type="Texture2D" uid="uid://bxmk8gucj7ptx" path="res://Plants/DS DSi - Plants vs Zombies - Peashooter.png" id="1_x7c0w"]
+[ext_resource type="Script" path="res://Plants/Peashooter/bullet.gd" id="2_ep3cs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tabu3"]
+radius = 5.02494
+
+[node name="bullet" type="Sprite2D"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_x7c0w")
+region_enabled = true
+region_rect = Rect2(77, 42, 12, 13)
+script = ExtResource("2_ep3cs")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_tabu3")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
