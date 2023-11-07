@@ -5,6 +5,7 @@ extends Node2D
 @onready var eating = $Eating
 @onready var walking_sprite = $WalkingSprite
 @onready var animation_player = $AnimationPlayer
+var health:int = 50
 
 var start_walking:bool
 # Called when the node enters the scene tree for the first time.
@@ -17,11 +18,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position+= walking_speed*delta*Vector2.LEFT
-	pass
+	if health<0:
+		set_process(false)
+		die()
 
 
 func _on_body_area_entered(area):
-	print("Zombie gets hit")
+	print("Zombie gets hit, remaining health: {}",health)
+	dying()
 
 
 func _on_touch_plant_area_entered(area):
@@ -45,3 +49,9 @@ func _on_touch_plant_area_exited(area):
 	start_walking_func()
 	animation_player.play("walking")
 	pass # Replace with function body.
+
+func dying():
+	health-=10
+	
+func die():
+	queue_free()
