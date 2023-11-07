@@ -7,6 +7,7 @@ extends Node2D
 @export var default_health: int = 100
 #@onready var bullet = get_child(2)
 # Called when the node enters the scene tree for the first time.
+@onready var ray_cast_2d = $RayCast2D
 @export var bullet: PackedScene
 
 var health:int = default_health
@@ -27,8 +28,12 @@ func _process(delta):
 		dying(delta)
 	if health < 0:
 		die()
+	if zombie_detected():
+		print('shoot')
+		shoot()
 	#print("Plant health is %f", health)
-
+#func _physics_process(delta):
+#	print('physic process')
 
 func _on_plant_body_area_entered(area):
 	print("Plant is being eaten")
@@ -52,6 +57,12 @@ func die():
 	queue_free()
 
 func _on_peashoter_timer_timeout():
-	print("shoot")
-	shoot()
+	#print("shoot")
+	#shoot()
 	pass # Replace with function body.
+
+func zombie_detected() -> bool:
+	var c = ray_cast_2d.get_collider()
+	if c != null:
+		return c.is_in_group("zombie")
+	return false
