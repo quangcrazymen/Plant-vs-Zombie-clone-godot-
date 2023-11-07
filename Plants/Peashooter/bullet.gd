@@ -25,4 +25,5 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 func _on_area_2d_area_entered(area):
 	print("hit the zombie")
+	queue_free()
 	pass # Replace with function body.

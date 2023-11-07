@@ -326,14 +326,17 @@ position = Vector2(-318.885, 19)
 scale = Vector2(1.03199, 1)
 
 [node name="RegularZombie" parent="PcComputer-PlantsVsZombies-Day" instance=ExtResource("11_gru8n")]
-position = Vector2(368.421, -89)
+position = Vector2(207.43, -91)
 scale = Vector2(1.03199, 1)
 walking_speed = 40
 
 [node name="RegularZombie2" parent="PcComputer-PlantsVsZombies-Day" instance=ExtResource("11_gru8n")]
-position = Vector2(365.325, 15)
+position = Vector2(173.375, 3)
 scale = Vector2(1.03199, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="RegularZombie" parent="." instance=ExtResource("11_gru8n")]
+position = Vector2(430, 6)
 
 [connection signal="pressed" from="PcComputer-PlantsVsZombies-Day/GridMap/Tile2/Button" to="PcComputer-PlantsVsZombies-Day/GridMap/Tile2" method="_on_button_pressed"]

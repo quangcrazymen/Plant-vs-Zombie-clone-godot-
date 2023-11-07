@@ -9,9 +9,14 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 @onready var ray_cast_2d = $RayCast2D
 @export var bullet: PackedScene
+@onready var peashoter_timer = $PeashoterTimer
 
 var health:int = default_health
 var beingEaten:bool = false
+var can_shoot: bool = false
+var is_in_shooting_state: bool = false
+
+
 
 func _ready():
 	#print(get_child(2).name)
@@ -29,8 +34,15 @@ func _process(delta):
 	if health < 0:
 		die()
 	if zombie_detected():
-		print('shoot')
-		shoot()
+		is_in_shooting_state = true
+	if zombie_detected() and can_shoot:
+		#print('shoot')
+		is_in_shooting_state = true
+
+	elif !zombie_detected():
+		peashoter_timer.stop()
+		is_in_shooting_state = false
+		can_shoot = false
 	#print("Plant health is %f", health)
 #func _physics_process(delta):
 #	print('physic process')
@@ -58,11 +70,15 @@ func die():
 
 func _on_peashoter_timer_timeout():
 	#print("shoot")
-	#shoot()
+	shoot()
+	can_shoot = false
 	pass # Replace with function body.
 
 func zombie_detected() -> bool:
 	var c = ray_cast_2d.get_collider()
 	if c != null:
-		return c.is_in_group("zombie")
+		#print(c.is_in_group("zombies"))
+		if !is_in_shooting_state:
+			Utils.set_and_start_timer(peashoter_timer,0.5,0)
+		return c.is_in_group("zombies")
 	return false

@@ -97,7 +97,7 @@ height = 112.0
 radius = 25.0
 height = 112.0
 
-[node name="RegularZombie" type="Node2D"]
+[node name="RegularZombie" type="Node2D" groups=["zombies"]]
 script = ExtResource("1_qmil7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -113,7 +113,7 @@ hframes = 7
 region_enabled = true
 region_rect = Rect2(112, 1, 183, 47)
 
-[node name="Body" type="Area2D" parent="."]
+[node name="Body" type="Area2D" parent="." groups=["zombies"]]
 collision_layer = 2
 collision_mask = 4
 
