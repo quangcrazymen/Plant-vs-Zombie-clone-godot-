@@ -22,7 +22,6 @@ func _ready():
 	#print(get_child(2).name)
 	pass # Replace with function body.
 
-#func start_sho
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

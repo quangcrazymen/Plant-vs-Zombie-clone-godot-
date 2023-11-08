@@ -339,4 +339,10 @@ scale = Vector2(1.03199, 1)
 [node name="RegularZombie" parent="." instance=ExtResource("11_gru8n")]
 position = Vector2(430, 6)
 
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = -447.0
+offset_top = -297.0
+offset_right = 337.0
+offset_bottom = -216.0
+
 [connection signal="pressed" from="PcComputer-PlantsVsZombies-Day/GridMap/Tile2/Button" to="PcComputer-PlantsVsZombies-Day/GridMap/Tile2" method="_on_button_pressed"]
