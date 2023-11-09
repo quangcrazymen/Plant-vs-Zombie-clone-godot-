@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bgfu07qfp8qky" path="res://Plants/PC Computer - Plants vs Zombies - Iceshroom.png" id="7_ot8xo"]
 [ext_resource type="Texture2D" uid="uid://cpgjy0u1uqco0" path="res://Plants/PeaShooter.png" id="8_lc0b3"]
 [ext_resource type="Script" path="res://SharedScript.gd" id="8_pqvtr"]
-[ext_resource type="PackedScene" path="res://UI/PlantSelectionTray.tscn" id="9_slshq"]
-[ext_resource type="PackedScene" uid="uid://c5xfldtsggpqg" path="res://GenericObjects/Sun.tscn" id="9_tqwgq"]
+[ext_resource type="Script" path="res://Singleton/SunManager.gd" id="9_dn3v0"]
+[ext_resource type="PackedScene" uid="uid://ct22ucg1wwkec" path="res://UI/PlantSelectionTray.tscn" id="9_slshq"]
 [ext_resource type="Script" path="res://PlantFactory.gd" id="10_isia7"]
 [ext_resource type="PackedScene" uid="uid://bi4x0dwx8ubbm" path="res://Plants/Peashooter/Peashooter.tscn" id="10_jgts7"]
 [ext_resource type="PackedScene" uid="uid://cfr08rm4t77vh" path="res://Zombies/regular_zombie.tscn" id="11_gru8n"]
@@ -345,20 +345,33 @@ scale = Vector2(1.03199, 1)
 position = Vector2(443.757, 6)
 scale = Vector2(1.03199, 1)
 
-[node name="Area2D" parent="PcComputer-PlantsVsZombies-Day" instance=ExtResource("9_tqwgq")]
-position = Vector2(100, 0)
-
 [node name="Ground" type="StaticBody2D" parent="PcComputer-PlantsVsZombies-Day"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PcComputer-PlantsVsZombies-Day/Ground"]
 position = Vector2(-24.4298, 242)
-scale = Vector2(1, 1)
 shape = SubResource("SegmentShape2D_lckkt")
 debug_color = Color(0, 0.0784314, 0.0980392, 0.419608)
 
+[node name="NumberOfSuns" type="HBoxContainer" parent="PcComputer-PlantsVsZombies-Day"]
+offset_left = -336.0
+offset_top = -257.0
+offset_right = -240.0
+offset_bottom = -176.0
+
+[node name="Label" type="Label" parent="PcComputer-PlantsVsZombies-Day/NumberOfSuns"]
+layout_mode = 2
+text = "Sun:"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="PcComputer-PlantsVsZombies-Day/NumberOfSuns"]
+layout_mode = 2
+
+[node name="SunManager" type="Node" parent="PcComputer-PlantsVsZombies-Day"]
+script = ExtResource("9_dn3v0")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Control" parent="." instance=ExtResource("9_slshq")]
+[node name="PlantSelection" parent="." instance=ExtResource("9_slshq")]
 offset_left = -100.0
 offset_top = -250.0
 offset_right = -100.0

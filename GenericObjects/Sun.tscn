@@ -1,8 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c5xfldtsggpqg"]
 
+[ext_resource type="Script" path="res://GenericObjects/Sun.gd" id="1_k65as"]
 [ext_resource type="Texture2D" uid="uid://cg3823bykb3ap" path="res://GenericObjects/DS DSi - Plants vs Zombies - Sun.png" id="1_xfu4i"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y1wyi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kud3i"]
 atlas = ExtResource("1_xfu4i")
@@ -29,9 +28,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_phh57"]
 radius = 28.0179
 
-[node name="Area2D" type="RigidBody2D"]
-physics_material_override = SubResource("PhysicsMaterial_y1wyi")
+[node name="Sun" type="RigidBody2D"]
+input_pickable = true
 gravity_scale = 0.1
+script = ExtResource("1_k65as")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
@@ -40,3 +40,5 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_phh57")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
