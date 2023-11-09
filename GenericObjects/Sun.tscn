@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5xfldtsggpqg"]
+
+[ext_resource type="Texture2D" uid="uid://cg3823bykb3ap" path="res://GenericObjects/DS DSi - Plants vs Zombies - Sun.png" id="1_xfu4i"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y1wyi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kud3i"]
+atlas = ExtResource("1_xfu4i")
+region = Rect2(0, 0, 26, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kd5d2"]
+atlas = ExtResource("1_xfu4i")
+region = Rect2(26, 0, 26, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g0v1f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kud3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kd5d2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_phh57"]
+radius = 28.0179
+
+[node name="Area2D" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_y1wyi")
+gravity_scale = 0.1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_g0v1f")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_phh57")

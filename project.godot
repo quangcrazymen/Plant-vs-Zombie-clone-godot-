@@ -15,6 +15,10 @@ run/main_scene="res://MainScene.tscn"
 config/features=PackedStringArray("4.1", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SunFallingFromSky="*res://Singleton/SunFallingFromSky.gd"
+
 [dotnet]
 
 project/assembly_name="Test Proj"
@@ -27,3 +31,5 @@ project/assembly_name="Test Proj"
 3d_physics/layer_2="zombie"
 2d_physics/layer_3="plants_bullet"
 3d_physics/layer_3="plant_bullet"
+2d_physics/layer_4="ground"
+2d_physics/layer_5="sun"
