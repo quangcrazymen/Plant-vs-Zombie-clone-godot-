@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cpgjy0u1uqco0" path="res://Plants/PeaShooter.png" id="8_lc0b3"]
 [ext_resource type="Script" path="res://SharedScript.gd" id="8_pqvtr"]
 [ext_resource type="Script" path="res://Singleton/SunManager.gd" id="9_dn3v0"]
-[ext_resource type="PackedScene" uid="uid://ct22ucg1wwkec" path="res://UI/PlantSelectionTray.tscn" id="9_slshq"]
+[ext_resource type="PackedScene" path="res://UI/PlantSelectionTray.tscn" id="9_slshq"]
 [ext_resource type="Script" path="res://PlantFactory.gd" id="10_isia7"]
 [ext_resource type="PackedScene" uid="uid://bi4x0dwx8ubbm" path="res://Plants/Peashooter/Peashooter.tscn" id="10_jgts7"]
 [ext_resource type="PackedScene" uid="uid://cfr08rm4t77vh" path="res://Zombies/regular_zombie.tscn" id="11_gru8n"]
@@ -368,6 +368,8 @@ layout_mode = 2
 
 [node name="SunManager" type="Node" parent="PcComputer-PlantsVsZombies-Day"]
 script = ExtResource("9_dn3v0")
+
+[node name="SunFallTimer" type="Timer" parent="PcComputer-PlantsVsZombies-Day/SunManager"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
