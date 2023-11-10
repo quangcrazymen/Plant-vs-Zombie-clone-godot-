@@ -17,5 +17,5 @@ func _on_input_event(_viewport, event, _shape_idx):
 	if event.is_action_pressed("click") == true:
 		print('Clicked on the sun')
 		SignalManager.on_sun_clicked.emit()
-#		queue_free()
+		queue_free()
 
