@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c5xfldtsggpqg"]
 
-[ext_resource type="Script" path="res://GenericObjects/Sun.gd" id="1_3q4f4"]
+[ext_resource type="Script" path="res://GenericObjects/Sun.gd" id="1_k65as"]
 [ext_resource type="Texture2D" uid="uid://cg3823bykb3ap" path="res://GenericObjects/DS DSi - Plants vs Zombies - Sun.png" id="1_xfu4i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kud3i"]
@@ -30,8 +30,8 @@ radius = 28.0179
 
 [node name="Sun" type="RigidBody2D"]
 input_pickable = true
-gravity_scale = 0.1
-script = ExtResource("1_3q4f4")
+gravity_scale = 0.05
+script = ExtResource("1_k65as")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)

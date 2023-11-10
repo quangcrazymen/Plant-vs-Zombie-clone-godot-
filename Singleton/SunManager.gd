@@ -7,7 +7,7 @@ var sun_gathered :int = 50
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SignalManager.on_sun_clicked.connect(on_sun_clicked)
-	Utils.set_and_start_timer(sun_fall_timer,3.0,0.0)
+
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
