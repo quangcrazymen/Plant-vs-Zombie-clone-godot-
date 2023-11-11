@@ -8,8 +8,6 @@ var sun_gathered :int = 50
 func _ready():
 	SignalManager.on_sun_clicked.connect(on_sun_clicked)
 
-	
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if sun_fall_timer.is_stopped():

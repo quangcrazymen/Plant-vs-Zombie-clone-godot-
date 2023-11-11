@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkmgsxbs2x1gd"]
+
+[ext_resource type="Texture2D" uid="uid://cpgjy0u1uqco0" path="res://Plants/PeaShooter.png" id="1_vh6dr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d22qy"]
+size = Vector2(52, 54)
+
+[node name="PeashooterImage" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_vh6dr")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_d22qy")

@@ -22,12 +22,4 @@ layout_mode = 2
 texture = ExtResource("2_edm3q")
 stretch_mode = 3
 
-[node name="TextureButton" type="TextureButton" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("2_edm3q")
-texture_pressed = ExtResource("2_edm3q")
-stretch_mode = 3
-
 [connection signal="mouse_entered" from="HBoxContainer/TextureRect" to="." method="_on_texture_rect_mouse_entered"]
-[connection signal="button_down" from="HBoxContainer/TextureButton" to="." method="_on_texture_button_button_down"]

@@ -1,19 +1,24 @@
 extends Control
 
 @onready var plantsSelection = $HBoxContainer
-@onready var sprite_2d = $HBoxContainer/Sprite2D
-
+@onready var sun_manager = $"../PcComputer-PlantsVsZombies-Day/SunManager"
+@export var plant_card: PackedScene = preload("res://UI/PlantCard.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for i in range(0,4):
-		plantsSelection.add_child(sprite_2d)
+		var new_card = plant_card.instantiate()
+		#new_card.disabled =true
+		plantsSelection.add_child(new_card)
 		print("Hello")
-
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+#	if sun_manager.sun_gathered <100:
+#		pea_shooter_card.disabled = true
+#	else:
+#		pea_shooter_card.disabled = false
 	pass
-	
 # Create draggable object: https://www.youtube.com/watch?v=uhgswVkYp0o
 
 
