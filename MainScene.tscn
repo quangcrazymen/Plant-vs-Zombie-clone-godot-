@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://benm3k1818qmn"]
+[gd_scene load_steps=13 format=3 uid="uid://benm3k1818qmn"]
 
 [ext_resource type="Script" path="res://Singleton/SunFallingFromSky.gd" id="2_cifyb"]
 [ext_resource type="Script" path="res://GridMap.gd" id="3_ywu53"]
 [ext_resource type="Texture2D" uid="uid://bya01jwlnel2v" path="res://PC Computer - Plants vs Zombies - Day.png" id="4_fk0de"]
+[ext_resource type="PackedScene" uid="uid://x7vw613v3na3" path="res://Plants/Sunflower/Sunflower.tscn" id="6_nuwny"]
 [ext_resource type="Script" path="res://Singleton/SunManager.gd" id="9_dn3v0"]
 [ext_resource type="PackedScene" uid="uid://ct22ucg1wwkec" path="res://UI/PlantSelectionTray.tscn" id="9_slshq"]
 [ext_resource type="Script" path="res://ZombieSpawner.gd" id="10_h67cu"]
@@ -49,6 +50,10 @@ scale = Vector2(1.03199, 1)
 [node name="RegularZombie3" parent="PcComputer-PlantsVsZombies-Day" instance=ExtResource("11_gru8n")]
 position = Vector2(443.757, 6)
 scale = Vector2(1.03199, 1)
+
+[node name="Sunflower2" parent="PcComputer-PlantsVsZombies-Day" instance=ExtResource("6_nuwny")]
+position = Vector2(-406.605, 11)
+scale = Vector2(2.06398, 2)
 
 [node name="Ground" type="StaticBody2D" parent="PcComputer-PlantsVsZombies-Day"]
 

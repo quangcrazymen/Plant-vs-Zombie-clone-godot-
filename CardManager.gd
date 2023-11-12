@@ -8,6 +8,7 @@ class_name CardManager
 
 
 var plant_image 
+var texture = load("res://Plants/Peashooter/PeashooterImage.png")
 func _ready():
 	SignalManager.on_card_clicked.connect(on_card_clicked)
 	SignalManager.on_card_released.connect(on_card_released)	
@@ -19,6 +20,7 @@ func _process(delta):
 
 func on_card_clicked():
 	plant_image = plant_image_res.instantiate()
+	plant_image.get_child(0).texture = texture
 	plant_image.position = get_global_mouse_position()
 	pc_computer_plants_vs_zombies_day.add_child(plant_image)
 	
