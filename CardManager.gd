@@ -2,32 +2,38 @@ extends Node2D
 
 class_name CardManager
 @onready var pc_computer_plants_vs_zombies_day = $".."
-@export var plant_image_res: PackedScene = preload("res://Plants/Peashooter/PeashooterImage.tscn")
 @onready var grid_map = $"../GridMap"
 @export var peashooter: PackedScene = preload("res://Plants/Peashooter/Peashooter.tscn")
 
-
+@export var plant_image_res: PackedScene
 var plant_image 
-var texture = load("res://Plants/Peashooter/PeashooterImage.png")
+var texture
+
 func _ready():
 	SignalManager.on_card_clicked.connect(on_card_clicked)
-	SignalManager.on_card_released.connect(on_card_released)	
+	SignalManager.on_card_released.connect(on_card_released)
+	const text = "Peashooter"
+	texture = load("res://Plants/%s/%sImage.png" %[text,text])
+	var filename = "res://Plants/%s/%sImage.tscn" % [text,text]
+	plant_image_res = load(filename)	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if plant_image:
 		plant_image.position = get_global_mouse_position()
 
-func on_card_clicked():
+func on_card_clicked(text):
 	plant_image = plant_image_res.instantiate()
-	plant_image.get_child(0).texture = texture
+	plant_image.get_child(0).texture = load("res://Plants/%s/%sImage.png"%[text,text])
 	plant_image.position = get_global_mouse_position()
 	pc_computer_plants_vs_zombies_day.add_child(plant_image)
 	
-func on_card_released():
+func on_card_released(plant_name):
 	for tile in grid_map.get_children():
-		if tile.on_chosen == true:
-			var instance = peashooter.instantiate()
+		if tile.on_chosen and !tile.is_occupied:
+			var plant: PackedScene = load("res://Plants/%s/%s.tscn" % [plant_name,plant_name])
+			var instance = plant.instantiate()
+			tile.is_occupied = true
+#			var instance = peashooter.instantiate()
 			tile.add_child(instance)
 	pc_computer_plants_vs_zombies_day.remove_child(plant_image)
 

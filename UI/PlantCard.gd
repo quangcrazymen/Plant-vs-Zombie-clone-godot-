@@ -1,8 +1,10 @@
 extends TextureButton
 
+class_name PlantCard
 
-# Called when the node enters the scene tree for the first time.
+var plant_name
 func _ready():
+	#texture_normal = load("res://Plants/Peashooter/peashooterCard.png")
 	pass # Replace with function body.
 
 
@@ -12,8 +14,7 @@ func _process(delta):
 
 
 func _on_button_down():
-	SignalManager.on_card_clicked.emit()
+	SignalManager.on_card_clicked.emit(plant_name)
 
 func _on_button_up():
-	print('released')
-	SignalManager.on_card_released.emit()
+	SignalManager.on_card_released.emit(plant_name)
