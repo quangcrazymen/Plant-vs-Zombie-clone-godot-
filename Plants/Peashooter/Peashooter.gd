@@ -78,6 +78,6 @@ func zombie_detected() -> bool:
 	if c != null:
 		#print(c.is_in_group("zombies"))
 		if !is_in_shooting_state:
-			Utils.set_and_start_timer(peashoter_timer,0.5,0)
+			Utils.set_and_start_timer(peashoter_timer,1.5,0)
 		return c.is_in_group("zombies")
 	return false

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg7xh23v7yo7b"
-path="res://.godot/imported/PeashooterCard.png-370e30650f634e9b46c93eb46f4b96da.ctex"
+uid="uid://dqw4h31gw8ery"
+path="res://.godot/imported/SunflowerCard.png-9d8b98915db392e1afc455f48ce41b23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Plants/Peashooter/PeashooterCard.png"
-dest_files=["res://.godot/imported/PeashooterCard.png-370e30650f634e9b46c93eb46f4b96da.ctex"]
+source_file="res://Plants/Sunflower/SunflowerCard.png"
+dest_files=["res://.godot/imported/SunflowerCard.png-9d8b98915db392e1afc455f48ce41b23.ctex"]
 
 [params]
 

@@ -1,8 +1,5 @@
-extends Node
+extends Node2D
 
-signal on_sun_clicked
-signal on_card_clicked
-signal on_card_released
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://bullaeyrer7dr"]
+
+[ext_resource type="Texture2D" uid="uid://bgfu07qfp8qky" path="res://Plants/PC Computer - Plants vs Zombies - Iceshroom.png" id="1_vjyg6"]
+
+[node name="Sprite2D" type="Sprite2D"]
+
+[node name="Polygons" type="Node" parent="."]
+
+[node name="Feet" type="Polygon2D" parent="Polygons"]
+position = Vector2(-302, 15)
+scale = Vector2(0.969, 1)
+texture = ExtResource("1_vjyg6")
+polygon = PackedVector2Array(7.22394, 104, 85.6553, 103, 84.6233, 122, 11.3519, 123)
+
+[node name="Hair" type="Polygon2D" parent="Polygons"]
+position = Vector2(-305, 39)
+scale = Vector2(0.969, 1)
+texture = ExtResource("1_vjyg6")
+polygon = PackedVector2Array(-3.09595, -3, 109.391, -2, 109.391, 54, -1.03195, 50)
+
+[node name="Face" type="Polygon2D" parent="Polygons"]
+position = Vector2(-304, 27)
+scale = Vector2(0.969, 1)
+texture = ExtResource("1_vjyg6")
+polygon = PackedVector2Array(84.6233, 56, 83.5913, 105, 16.5119, 104, 17.5439, 57)
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
