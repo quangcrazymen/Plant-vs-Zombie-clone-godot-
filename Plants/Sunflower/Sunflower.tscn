@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://x7vw613v3na3"]
+[gd_scene load_steps=7 format=3 uid="uid://x7vw613v3na3"]
 
 [ext_resource type="Script" path="res://Plants/Sunflower/Sunflower.gd" id="1_otpd4"]
 [ext_resource type="Texture2D" uid="uid://7jfp5o2w4m70" path="res://Plants/Sunflower/DS DSi - Plants vs Zombies - Sunflower.png" id="2_ipchx"]
@@ -41,6 +41,9 @@ _data = {
 "idling": SubResource("Animation_0o3tn")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d35j5"]
+size = Vector2(27.5, 29)
+
 [node name="Sunflower" type="Node2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_otpd4")
@@ -55,3 +58,15 @@ autoplay = "idling"
 libraries = {
 "": SubResource("AnimationLibrary_fsxhx")
 }
+
+[node name="PlantBody" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlantBody"]
+position = Vector2(0.25, 1.5)
+shape = SubResource("RectangleShape2D_d35j5")
+
+[node name="SunflowerTimer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="PlantBody" to="." method="_on_plant_body_area_entered"]
+[connection signal="timeout" from="SunflowerTimer" to="." method="_on_sunflower_timer_timeout"]
