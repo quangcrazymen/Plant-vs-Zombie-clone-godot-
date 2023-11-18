@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://c61766f8eabxn"]
+
+[ext_resource type="Texture2D" uid="uid://b384ebhgh6fq1" path="res://Plants/Wallnut/Wallnut.png" id="1_4vvdu"]
+[ext_resource type="Script" path="res://Plants/Wallnut/Wallnut.gd" id="1_jgv6a"]
+
+[sub_resource type="Animation" id="Animation_fpsnp"]
+resource_name = "idling"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_bd65w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_44bok"]
+_data = {
+"RESET": SubResource("Animation_bd65w"),
+"idling": SubResource("Animation_fpsnp")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e83ve"]
+size = Vector2(43, 56)
+
+[node name="Wallnut" type="Node2D"]
+script = ExtResource("1_jgv6a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_4vvdu")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idling"
+libraries = {
+"": SubResource("AnimationLibrary_44bok")
+}
+
+[node name="PlantBody" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlantBody"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_e83ve")
+
+[connection signal="area_entered" from="PlantBody" to="." method="_on_plant_body_area_entered"]

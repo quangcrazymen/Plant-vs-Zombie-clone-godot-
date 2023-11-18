@@ -4,11 +4,11 @@ extends Control
 @onready var sun_manager = $"../PcComputer-PlantsVsZombies-Day/SunManager"
 @export var plant_card: PackedScene = preload("res://UI/PlantCard.tscn")
 
-
-#var plants_in_game = ["Peashooter","Sunflower"]
 var plants_in_game = {
 	"Peashooter": 100,
-	"Sunflower": 50
+	"Sunflower": 50,
+	"Wallnut": 50,
+	"Threepeater": 325
 }
 
 func _ready():
@@ -23,7 +23,6 @@ func _ready():
 		plant_selection.add_child(new_card)
 
 func _physics_process(_delta):
-	print(sun_manager.sun_gathered)
 	update_card_state()
 
 func _on_texture_rect_mouse_entered():
