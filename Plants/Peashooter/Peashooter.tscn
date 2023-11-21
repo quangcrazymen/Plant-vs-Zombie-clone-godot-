@@ -77,7 +77,5 @@ target_position = Vector2(0, 400)
 collision_mask = 2
 collide_with_areas = true
 
-[node name="PlayerDetect" type="Node" parent="."]
-
 [connection signal="area_entered" from="PlantBody" to="." method="_on_plant_body_area_entered"]
 [connection signal="timeout" from="PeashoterTimer" to="." method="_on_peashoter_timer_timeout"]

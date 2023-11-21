@@ -4,16 +4,16 @@ class_name CardManager
 @onready var pc_computer_plants_vs_zombies_day = $".."
 @onready var grid_map = $"../GridMap"
 @export var peashooter: PackedScene = preload("res://Plants/Peashooter/Peashooter.tscn")
+@onready var plant_selection = $"../../PlantSelection"
+@onready var sun_manager = $"../SunManager"
 
 @export var plant_image_res: PackedScene
-var plant_image 
-var texture
+var plant_image
 
 func _ready():
 	SignalManager.on_card_clicked.connect(on_card_clicked)
 	SignalManager.on_card_released.connect(on_card_released)
 	const text = "Peashooter"
-	texture = load("res://Plants/%s/%sImage.png" %[text,text])
 	var filename = "res://Plants/%s/%sImage.tscn" % [text,text]
 	plant_image_res = load(filename)	
 
@@ -33,8 +33,9 @@ func on_card_released(plant_name):
 			var plant: PackedScene = load("res://Plants/%s/%s.tscn" % [plant_name,plant_name])
 			var instance = plant.instantiate()
 			tile.is_occupied = true
-#			var instance = peashooter.instantiate()
 			tile.add_child(instance)
+			# spend sun
+			sun_manager.sun_gathered -= plant_selection.plants_in_game[plant_name]
 	pc_computer_plants_vs_zombies_day.remove_child(plant_image)
 
 #func spawn(spawn_global_position):

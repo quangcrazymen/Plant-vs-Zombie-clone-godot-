@@ -25,8 +25,7 @@ func _ready():
 		new_zombie.position = Vector2(512.0,position)
 		plants_vs_zombies_day.add_child(new_zombie)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Randomly spawn new sun on the screen
 func _process(delta):
 	if is_sun_falling:
 		var new_sun = sun_scene.instantiate()
@@ -41,11 +40,9 @@ func _process(delta):
 		is_time_to_spawn_zombie = false
 	score_label.text = str(sun_manager.sun_gathered)
 
-
 func _on_sun_fall_timer_timeout():
 	is_sun_falling = true
 	Utils.set_and_start_timer(sun_fall_timer,3.0,0.0)
-	pass # Replace with function body.
 
 
 func _on_zombie_spawner_timer_timeout():

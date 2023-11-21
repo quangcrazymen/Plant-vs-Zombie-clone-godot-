@@ -133,6 +133,9 @@ hframes = 7
 region_enabled = true
 region_rect = Rect2(301, 4, 216, 44)
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
 [connection signal="area_entered" from="Body" to="." method="_on_body_area_entered"]
 [connection signal="area_entered" from="TouchPlant" to="." method="_on_touch_plant_area_entered"]
 [connection signal="area_exited" from="TouchPlant" to="." method="_on_touch_plant_area_exited"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
