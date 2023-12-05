@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var walking_speed: int = 20
+@export var walking_speed: int = 10
 #@onready var zombie_state_machine = $AnimationTree["parameters/playback"]
 @onready var eating = $Eating
 @onready var walking_sprite = $WalkingSprite
@@ -13,6 +13,7 @@ func _ready():
 	start_walking = true
 
 func _process(delta):
+	#print(delta)
 	position+= walking_speed*delta*Vector2.LEFT
 	if health<0:
 		set_process(false)

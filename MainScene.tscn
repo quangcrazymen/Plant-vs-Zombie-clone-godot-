@@ -41,7 +41,6 @@ scale = Vector2(1.03199, 1)
 [node name="RegularZombie" parent="PcComputer-PlantsVsZombies-Day" instance=ExtResource("11_gru8n")]
 position = Vector2(207.43, -91)
 scale = Vector2(1.03199, 1)
-walking_speed = 40
 
 [node name="RegularZombie2" parent="PcComputer-PlantsVsZombies-Day" instance=ExtResource("11_gru8n")]
 position = Vector2(173.375, 3)
