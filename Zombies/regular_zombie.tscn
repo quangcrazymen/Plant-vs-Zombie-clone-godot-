@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cfr08rm4t77vh"]
 
 [ext_resource type="Texture2D" uid="uid://dm0stnbtl8p5o" path="res://Zombies/DS DSi - Plants vs Zombies - Zombie.png" id="1_36l7i"]
-[ext_resource type="Script" path="res://Zombies/regular_zombie.gd" id="1_qmil7"]
+[ext_resource type="Script" uid="uid://djuilo5uqgw6x" path="res://Zombies/regular_zombie.gd" id="1_qmil7"]
 
 [sub_resource type="Animation" id="Animation_7y2tu"]
 length = 0.001
@@ -83,10 +83,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wgo4c"]
 _data = {
-"RESET": SubResource("Animation_7y2tu"),
-"eating": SubResource("Animation_6b7wu"),
-"idle": SubResource("Animation_7ved8"),
-"walking": SubResource("Animation_mj3lv")
+&"RESET": SubResource("Animation_7y2tu"),
+&"eating": SubResource("Animation_6b7wu"),
+&"idle": SubResource("Animation_7ved8"),
+&"walking": SubResource("Animation_mj3lv")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x4y1q"]

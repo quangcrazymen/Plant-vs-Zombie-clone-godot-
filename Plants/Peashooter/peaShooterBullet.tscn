@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bka20wixdlujx"]
 
 [ext_resource type="Texture2D" uid="uid://bxmk8gucj7ptx" path="res://Plants/DS DSi - Plants vs Zombies - Peashooter.png" id="1_x7c0w"]
-[ext_resource type="Script" path="res://Plants/Peashooter/bullet.gd" id="2_ep3cs"]
+[ext_resource type="Script" uid="uid://cgikwl4xaokne" path="res://Plants/Peashooter/bullet.gd" id="2_ep3cs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tabu3"]
 radius = 5.02494

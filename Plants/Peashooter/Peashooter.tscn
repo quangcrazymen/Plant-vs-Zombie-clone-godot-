@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bi4x0dwx8ubbm"]
+[gd_scene load_steps=10 format=3 uid="uid://bi4x0dwx8ubbm"]
 
-[ext_resource type="Script" path="res://Plants/Peashooter/Peashooter.gd" id="1_csa6h"]
+[ext_resource type="Script" uid="uid://sqyuxlbw8y47" path="res://Plants/Peashooter/Peashooter.gd" id="1_csa6h"]
 [ext_resource type="Texture2D" uid="uid://bxmk8gucj7ptx" path="res://Plants/DS DSi - Plants vs Zombies - Peashooter.png" id="1_wptbe"]
+[ext_resource type="Shader" uid="uid://ciojv0wm5o52e" path="res://Plants/Peashooter/Peashooter.gdshader" id="3_3wrde"]
 [ext_resource type="PackedScene" uid="uid://bka20wixdlujx" path="res://Plants/Peashooter/peaShooterBullet.tscn" id="3_6j13t"]
 
 [sub_resource type="Animation" id="Animation_vp71h"]
@@ -38,9 +39,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_77iyb"]
 _data = {
-"RESET": SubResource("Animation_vp71h"),
-"idle": SubResource("Animation_u0k6o")
+&"RESET": SubResource("Animation_vp71h"),
+&"idle": SubResource("Animation_u0k6o")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qgjs5"]
+shader = ExtResource("3_3wrde")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdorg"]
 size = Vector2(51, 60)
@@ -50,12 +54,13 @@ script = ExtResource("1_csa6h")
 bullet = ExtResource("3_6j13t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "idle"
 libraries = {
-"": SubResource("AnimationLibrary_77iyb")
+&"": SubResource("AnimationLibrary_77iyb")
 }
+autoplay = "idle"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_qgjs5")
 scale = Vector2(2, 2)
 texture = ExtResource("1_wptbe")
 hframes = 8

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c61766f8eabxn"]
 
 [ext_resource type="Texture2D" uid="uid://b384ebhgh6fq1" path="res://Plants/Wallnut/Wallnut.png" id="1_4vvdu"]
-[ext_resource type="Script" path="res://Plants/Wallnut/Wallnut.gd" id="1_jgv6a"]
+[ext_resource type="Script" uid="uid://c7httafxymb0j" path="res://Plants/Wallnut/Wallnut.gd" id="1_jgv6a"]
 
 [sub_resource type="Animation" id="Animation_bd65w"]
 length = 0.001
@@ -36,8 +36,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_44bok"]
 _data = {
-"RESET": SubResource("Animation_bd65w"),
-"idling": SubResource("Animation_fpsnp")
+&"RESET": SubResource("Animation_bd65w"),
+&"idling": SubResource("Animation_fpsnp")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e83ve"]

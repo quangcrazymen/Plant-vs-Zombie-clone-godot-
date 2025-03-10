@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cg8ybuwot5167"]
 
-[ext_resource type="Script" path="res://GenericObjects/Tile.gd" id="1_ealv8"]
+[ext_resource type="Script" uid="uid://bw6s6ht6r1lem" path="res://GenericObjects/Tile.gd" id="1_ealv8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_50sof"]
 

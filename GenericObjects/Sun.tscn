@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c5xfldtsggpqg"]
 
-[ext_resource type="Script" path="res://GenericObjects/Sun.gd" id="1_k65as"]
+[ext_resource type="Script" uid="uid://coyoxaujqir05" path="res://GenericObjects/Sun.gd" id="1_k65as"]
 [ext_resource type="Texture2D" uid="uid://cg3823bykb3ap" path="res://GenericObjects/DS DSi - Plants vs Zombies - Sun.png" id="1_xfu4i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kud3i"]

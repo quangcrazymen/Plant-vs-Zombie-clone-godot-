@@ -2,6 +2,21 @@
 
 [ext_resource type="Texture2D" uid="uid://6eq5bp63bf2h" path="res://Plants/Threepeater/Threepeater.png" id="1_0mwvt"]
 
+[sub_resource type="Animation" id="Animation_pau1w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_5366p"]
 resource_name = "idling"
 length = 1.08
@@ -19,25 +34,10 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
-[sub_resource type="Animation" id="Animation_pau1w"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2kpwe"]
 _data = {
-"RESET": SubResource("Animation_pau1w"),
-"idling": SubResource("Animation_5366p")
+&"RESET": SubResource("Animation_pau1w"),
+&"idling": SubResource("Animation_5366p")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5y1yd"]

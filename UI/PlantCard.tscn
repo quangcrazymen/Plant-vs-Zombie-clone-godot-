@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://by8psq7ldr3dd"]
 
-[ext_resource type="Script" path="res://UI/PlantCard.gd" id="3_o5dmw"]
+[ext_resource type="Script" uid="uid://bhr635ji7hfuu" path="res://UI/PlantCard.gd" id="3_o5dmw"]
 
 [node name="PeaShooterCard" type="TextureButton"]
 offset_right = 24.0

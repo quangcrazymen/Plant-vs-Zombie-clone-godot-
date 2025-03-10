@@ -1,16 +1,16 @@
 [gd_scene load_steps=13 format=3 uid="uid://benm3k1818qmn"]
 
-[ext_resource type="Script" path="res://Singleton/SunFallingFromSky.gd" id="2_cifyb"]
-[ext_resource type="Script" path="res://GridMap.gd" id="3_ywu53"]
+[ext_resource type="Script" uid="uid://bypsoqea517jf" path="res://Singleton/SunFallingFromSky.gd" id="2_cifyb"]
+[ext_resource type="Script" uid="uid://b752ti4kb0jnh" path="res://GridMap.gd" id="3_ywu53"]
 [ext_resource type="Texture2D" uid="uid://bya01jwlnel2v" path="res://PC Computer - Plants vs Zombies - Day.png" id="4_fk0de"]
 [ext_resource type="PackedScene" uid="uid://x7vw613v3na3" path="res://Plants/Sunflower/Sunflower.tscn" id="6_nuwny"]
-[ext_resource type="Script" path="res://Singleton/SunManager.gd" id="9_dn3v0"]
+[ext_resource type="Script" uid="uid://bgplwk2ymb8bl" path="res://Singleton/SunManager.gd" id="9_dn3v0"]
 [ext_resource type="PackedScene" uid="uid://ct22ucg1wwkec" path="res://UI/PlantSelectionTray.tscn" id="9_slshq"]
-[ext_resource type="Script" path="res://ZombieSpawner.gd" id="10_h67cu"]
-[ext_resource type="Script" path="res://PlantFactory.gd" id="10_isia7"]
+[ext_resource type="Script" uid="uid://c6syq72wyyu26" path="res://ZombieSpawner.gd" id="10_h67cu"]
+[ext_resource type="Script" uid="uid://bf14tdh145ej2" path="res://PlantFactory.gd" id="10_isia7"]
 [ext_resource type="PackedScene" uid="uid://bi4x0dwx8ubbm" path="res://Plants/Peashooter/Peashooter.tscn" id="10_jgts7"]
 [ext_resource type="PackedScene" uid="uid://cfr08rm4t77vh" path="res://Zombies/regular_zombie.tscn" id="11_gru8n"]
-[ext_resource type="Script" path="res://CardManager.gd" id="11_kalk7"]
+[ext_resource type="Script" uid="uid://cpsc4vp8f2abn" path="res://CardManager.gd" id="11_kalk7"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_lckkt"]
 a = Vector2(-450.287, 14)

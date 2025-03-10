@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://x7vw613v3na3"]
+[gd_scene load_steps=9 format=3 uid="uid://x7vw613v3na3"]
 
-[ext_resource type="Script" path="res://Plants/Sunflower/Sunflower.gd" id="1_otpd4"]
+[ext_resource type="Script" uid="uid://bwi076wen5dvq" path="res://Plants/Sunflower/Sunflower.gd" id="1_otpd4"]
+[ext_resource type="Shader" uid="uid://cwuasfwctg481" path="res://Plants/Sunflower/Sunflower.gdshader" id="2_0qegt"]
 [ext_resource type="Texture2D" uid="uid://7jfp5o2w4m70" path="res://Plants/Sunflower/DS DSi - Plants vs Zombies - Sunflower.png" id="2_ipchx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bnnes"]
+shader = ExtResource("2_0qegt")
 
 [sub_resource type="Animation" id="Animation_x3igt"]
 length = 0.001
@@ -37,8 +41,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fsxhx"]
 _data = {
-"RESET": SubResource("Animation_x3igt"),
-"idling": SubResource("Animation_0o3tn")
+&"RESET": SubResource("Animation_x3igt"),
+&"idling": SubResource("Animation_0o3tn")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d35j5"]
@@ -49,15 +53,16 @@ scale = Vector2(2, 2)
 script = ExtResource("1_otpd4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_bnnes")
 texture = ExtResource("2_ipchx")
 hframes = 8
 vframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "idling"
 libraries = {
-"": SubResource("AnimationLibrary_fsxhx")
+&"": SubResource("AnimationLibrary_fsxhx")
 }
+autoplay = "idling"
 
 [node name="PlantBody" type="Area2D" parent="."]
 collision_mask = 2
