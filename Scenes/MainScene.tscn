@@ -1,0 +1,119 @@
+[gd_scene load_steps=15 format=3 uid="uid://benm3k1818qmn"]
+
+[ext_resource type="Script" uid="uid://bypsoqea517jf" path="res://Singleton/SunFallingFromSky.gd" id="2_cifyb"]
+[ext_resource type="Script" uid="uid://b752ti4kb0jnh" path="res://GridMap.gd" id="3_ywu53"]
+[ext_resource type="Texture2D" uid="uid://bya01jwlnel2v" path="res://PC Computer - Plants vs Zombies - Day.png" id="4_fk0de"]
+[ext_resource type="PackedScene" uid="uid://x7vw613v3na3" path="res://Plants/Sunflower/Sunflower.tscn" id="6_nuwny"]
+[ext_resource type="Script" uid="uid://bgplwk2ymb8bl" path="res://Singleton/SunManager.gd" id="9_dn3v0"]
+[ext_resource type="PackedScene" uid="uid://ct22ucg1wwkec" path="res://UI/PlantSelectionTray.tscn" id="9_slshq"]
+[ext_resource type="Script" uid="uid://c6syq72wyyu26" path="res://ZombieSpawner.gd" id="10_h67cu"]
+[ext_resource type="Script" uid="uid://bf14tdh145ej2" path="res://PlantFactory.gd" id="10_isia7"]
+[ext_resource type="PackedScene" uid="uid://bi4x0dwx8ubbm" path="res://Plants/Peashooter/Peashooter.tscn" id="10_jgts7"]
+[ext_resource type="PackedScene" uid="uid://cfr08rm4t77vh" path="res://Zombies/regular_zombie.tscn" id="11_gru8n"]
+[ext_resource type="Script" uid="uid://cpsc4vp8f2abn" path="res://CardManager.gd" id="11_kalk7"]
+[ext_resource type="PackedScene" uid="uid://dw5srly0t1l75" path="res://Plants/Kernel-pult/kernelpult.tscn" id="12_xb4mg"]
+[ext_resource type="PackedScene" uid="uid://30wwmvjklo0c" path="res://Plants/Cherry-bomb/cherry_bomb.tscn" id="13_6t1o7"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lckkt"]
+a = Vector2(-450.287, 14)
+b = Vector2(717.928, 13)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PcComputer-PlantsVsZombies-Day" type="Sprite2D" parent="."]
+scale = Vector2(0.969, 1)
+texture = ExtResource("4_fk0de")
+script = ExtResource("2_cifyb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PcComputer-PlantsVsZombies-Day"]
+
+[node name="GridMap" type="Area2D" parent="PcComputer-PlantsVsZombies-Day"]
+collision_layer = 32
+collision_mask = 64
+script = ExtResource("3_ywu53")
+
+[node name="Peashooter" parent="PcComputer-PlantsVsZombies-Day" instance=ExtResource("10_jgts7")]
+position = Vector2(-321.981, -79)
+scale = Vector2(1.03199, 1)
+
+[node name="Peashooter2" parent="PcComputer-PlantsVsZombies-Day" instance=ExtResource("10_jgts7")]
+position = Vector2(-318.885, 19)
+scale = Vector2(1.03199, 1)
+
+[node name="RegularZombie" parent="PcComputer-PlantsVsZombies-Day" instance=ExtResource("11_gru8n")]
+position = Vector2(207.43, -91)
+scale = Vector2(1.03199, 1)
+
+[node name="RegularZombie2" parent="PcComputer-PlantsVsZombies-Day" instance=ExtResource("11_gru8n")]
+position = Vector2(173.375, 3)
+scale = Vector2(1.03199, 1)
+
+[node name="RegularZombie3" parent="PcComputer-PlantsVsZombies-Day" instance=ExtResource("11_gru8n")]
+position = Vector2(443.757, 6)
+scale = Vector2(1.03199, 1)
+
+[node name="Sunflower2" parent="PcComputer-PlantsVsZombies-Day" instance=ExtResource("6_nuwny")]
+position = Vector2(-406.605, 11)
+scale = Vector2(2.06398, 2)
+
+[node name="Ground" type="StaticBody2D" parent="PcComputer-PlantsVsZombies-Day"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PcComputer-PlantsVsZombies-Day/Ground"]
+position = Vector2(-24.4298, 242)
+shape = SubResource("SegmentShape2D_lckkt")
+debug_color = Color(0, 0.0784314, 0.0980392, 0.419608)
+
+[node name="NumberOfSuns" type="HBoxContainer" parent="PcComputer-PlantsVsZombies-Day"]
+offset_left = -336.0
+offset_top = -257.0
+offset_right = -240.0
+offset_bottom = -176.0
+
+[node name="Label" type="Label" parent="PcComputer-PlantsVsZombies-Day/NumberOfSuns"]
+layout_mode = 2
+text = "Sun:"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="PcComputer-PlantsVsZombies-Day/NumberOfSuns"]
+layout_mode = 2
+
+[node name="SunManager" type="Node" parent="PcComputer-PlantsVsZombies-Day"]
+script = ExtResource("9_dn3v0")
+
+[node name="SunFallTimer" type="Timer" parent="PcComputer-PlantsVsZombies-Day/SunManager"]
+
+[node name="ZombieSpawner" type="Node2D" parent="PcComputer-PlantsVsZombies-Day"]
+script = ExtResource("10_h67cu")
+
+[node name="ZombieSpawnerTimer" type="Timer" parent="PcComputer-PlantsVsZombies-Day/ZombieSpawner"]
+
+[node name="CardManager" type="Node2D" parent="PcComputer-PlantsVsZombies-Day"]
+script = ExtResource("11_kalk7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PlantSelection" parent="." instance=ExtResource("9_slshq")]
+offset_left = -100.0
+offset_top = -280.0
+offset_right = -100.0
+offset_bottom = -280.0
+scale = Vector2(2, 2)
+
+[node name="PlantFactory" type="Node2D" parent="."]
+script = ExtResource("10_isia7")
+
+[node name="Kernelpult2" parent="." instance=ExtResource("12_xb4mg")]
+position = Vector2(-226, 59)
+
+[node name="Kernelpult" parent="." instance=ExtResource("12_xb4mg")]
+position = Vector2(-316, 148)
+
+[node name="Kernelpult3" parent="." instance=ExtResource("12_xb4mg")]
+position = Vector2(-240, 232)
+
+[node name="CherryBomb2" parent="." instance=ExtResource("13_6t1o7")]
+position = Vector2(-162, 126)
+
+[connection signal="area_entered" from="PcComputer-PlantsVsZombies-Day/GridMap" to="PcComputer-PlantsVsZombies-Day/GridMap" method="_on_area_entered"]
+[connection signal="timeout" from="PcComputer-PlantsVsZombies-Day/SunManager/SunFallTimer" to="PcComputer-PlantsVsZombies-Day" method="_on_sun_fall_timer_timeout"]
+[connection signal="timeout" from="PcComputer-PlantsVsZombies-Day/ZombieSpawner/ZombieSpawnerTimer" to="PcComputer-PlantsVsZombies-Day" method="_on_zombie_spawner_timer_timeout"]
