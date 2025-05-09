@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0vwxyvgqy1jq"]
+[gd_scene load_steps=5 format=3 uid="uid://c0vwxyvgqy1jq"]
 
 [ext_resource type="Texture2D" uid="uid://c1vmya5ek7pf" path="res://icon.svg" id="1_fxhha"]
 [ext_resource type="Texture2D" uid="uid://87b10dptsuhc" path="res://Plants/Cherry-bomb/Cherry-bomb.webp" id="2_21m4d"]
+[ext_resource type="Script" uid="uid://cn8mg6gsspfo3" path="res://UI/PreGameMenu/PlantsMenu.gd" id="3_qowgc"]
+
+[sub_resource type="Curve" id="Curve_qowgc"]
 
 [node name="PlantSelection" type="Control"]
 layout_mode = 3
@@ -55,6 +58,9 @@ anchor_bottom = 1.0
 offset_top = -392.0
 offset_right = 1052.0
 grow_vertical = 0
+script = ExtResource("3_qowgc")
+curve = SubResource("Curve_qowgc")
+transition_type = 7
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
