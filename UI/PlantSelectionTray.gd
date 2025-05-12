@@ -40,4 +40,3 @@ func update_card_state():
 			plant_cards[i].disabled = false
 
 		
-

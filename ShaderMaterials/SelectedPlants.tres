@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cx1uefja1wa7k"]
+
+[ext_resource type="Shader" uid="uid://lsgeb0rvweu5" path="res://Scenes/PlantCards.gdshader" id="1_p4cao"]
+
+[resource]
+shader = ExtResource("1_p4cao")
+shader_parameter/radius_scale = 0.1
+shader_parameter/rounded_corner_top_left = true
+shader_parameter/rounded_corner_top_right = true
+shader_parameter/rounded_corner_bottom_left = true
+shader_parameter/rounded_corner_bottom_right = true
+shader_parameter/width = 1.0
+shader_parameter/height = 1.0

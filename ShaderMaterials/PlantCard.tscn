@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxk052aer2hhw"]
+
+[ext_resource type="Script" uid="uid://4up2v6o64u3e" path="res://ShaderMaterials/PlandCard.gd" id="1_g5uap"]
+[ext_resource type="Material" uid="uid://cx1uefja1wa7k" path="res://ShaderMaterials/SelectedPlants.tres" id="1_w8pnu"]
+[ext_resource type="Texture2D" uid="uid://b384ebhgh6fq1" path="res://Plants/Wallnut/Wallnut.png" id="2_g5uap"]
+[ext_resource type="Texture2D" uid="uid://f5mkgye2poiy" path="res://UI/PreGameMenu/PlantCard.png" id="2_ox3mh"]
+
+[sub_resource type="Theme" id="Theme_ox3mh"]
+
+[node name="MarginContainer" type="MarginContainer"]
+offset_right = 102.0
+offset_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+tooltip_text = "Peashooter
+Will turn zombies into soup"
+script = ExtResource("1_g5uap")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(3, 85)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+z_index = 1
+layout_mode = 2
+texture = ExtResource("2_g5uap")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Panel3" type="Panel" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(3, 85)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Container" type="Control" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = SubResource("Theme_ox3mh")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Container2" type="Control" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = ExtResource("1_w8pnu")
+custom_minimum_size = Vector2(80, 104)
+layout_mode = 2
+tooltip_text = "Peashooter
+Will turn zombies into soup"
+texture = ExtResource("2_ox3mh")
+expand_mode = 5
+stretch_mode = 5
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

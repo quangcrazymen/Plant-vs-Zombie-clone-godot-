@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://bg1b3hicyqmly"]
+
+[ext_resource type="Script" uid="uid://bo27wstvscdm8" path="res://Scenes/selected_plant.gd" id="1_07rsv"]
+[ext_resource type="Shader" uid="uid://b8bt8fqfoivv" path="res://Scenes/plant_selection.gdshader" id="4_qgocd"]
+[ext_resource type="Script" uid="uid://cn8mg6gsspfo3" path="res://UI/PreGameMenu/PlantsMenu.gd" id="6_u35ah"]
+[ext_resource type="PackedScene" uid="uid://cxk052aer2hhw" path="res://ShaderMaterials/PlantCard.tscn" id="7_jy4q1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o8yxb"]
+shader = ExtResource("4_qgocd")
+
+[sub_resource type="Curve" id="Curve_qowgc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_07rsv"]
+
+[node name="PlantSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UpperPanel" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_top = -143.0
+offset_right = 848.0
+offset_bottom = -2.0
+script = ExtResource("1_07rsv")
+transition_type = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UpperPanel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UpperPanel/HBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="UpperPanel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UpperPanel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "100"
+
+[node name="SelectedPlant" type="HBoxContainer" parent="UpperPanel/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" parent="UpperPanel/HBoxContainer/SelectedPlant" instance=ExtResource("7_jy4q1")]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." node_paths=PackedStringArray("target")]
+material = SubResource("ShaderMaterial_o8yxb")
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.216
+anchor_right = 0.681
+anchor_bottom = 1.0
+offset_top = 507.032
+offset_right = 0.487915
+offset_bottom = 507.0
+script = ExtResource("6_u35ah")
+target = NodePath(".")
+curve = SubResource("Curve_qowgc")
+transition_type = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Panel" type="Panel" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "CHOOSE YOUR PLANTS!"
+label_settings = SubResource("LabelSettings_07rsv")
+
+[node name="Panel2" type="Panel" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+
+[node name="ChooseYourPlant" type="GridContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+columns = 8
+
+[node name="MarginContainer" parent="PanelContainer/VBoxContainer/ChooseYourPlant" instance=ExtResource("7_jy4q1")]
+layout_mode = 2
+
+[node name="MarginContainer2" parent="PanelContainer/VBoxContainer/ChooseYourPlant" instance=ExtResource("7_jy4q1")]
+layout_mode = 2
+
+[node name="MarginContainer3" parent="PanelContainer/VBoxContainer/ChooseYourPlant" instance=ExtResource("7_jy4q1")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+tooltip_text = "Will start the match"
+text = "LET'S ROCK"
+
+[connection signal="ready" from="PanelContainer" to="PanelContainer" method="_on_ready"]
