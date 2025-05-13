@@ -16,6 +16,7 @@ func _ready():
 		var new_card = plant_card.instantiate()
 		var name_of_resource_card_file = "res://Plants/%s/%sCard.png" % [plant,plant]
 		var name_of_resource_disabled_card_file = "res://Plants/%s/%sCardDisable.png" % [plant,plant]		
+		# TODO: Change it using shader
 		new_card.texture_normal = load(name_of_resource_card_file)
 		new_card.texture_pressed = load(name_of_resource_card_file)		
 		new_card.texture_disabled = load(name_of_resource_disabled_card_file)		

@@ -23,6 +23,11 @@ func _on_ready() -> void:
 	#position
 	#add_tween("")
 	print(get_window().size)
-	add_tween("position", Vector2(self.position.x, get_window().size.y - self.size.y), 1.0)
-	#add_tween("scale", Vector2(2.0,2.0), 1.0);
-	pass # Replace with function body.
+	var transitionTime = 1.0
+	#add_tween("position", Vector2(self.position.x, get_window().size.y - self.size.y), 1.0)
+	#await get_tree().create_timer(transitionTime)
+	#self.set_anch
+
+
+func _on_lets_rock_pressed() -> void:
+	SignalManager.gameStateChanged.emit(GameManager.GameState.ACTION_PHASE)
