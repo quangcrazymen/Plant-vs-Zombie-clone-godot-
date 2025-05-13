@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bg1b3hicyqmly"]
+[gd_scene load_steps=11 format=3 uid="uid://bg1b3hicyqmly"]
 
 [ext_resource type="Script" uid="uid://bo27wstvscdm8" path="res://Scenes/selected_plant.gd" id="1_07rsv"]
+[ext_resource type="Texture2D" uid="uid://gb8mqmknv55g" path="res://UI/Assets/SunUI.webp" id="2_jy4q1"]
 [ext_resource type="Shader" uid="uid://b8bt8fqfoivv" path="res://Scenes/plant_selection.gdshader" id="4_qgocd"]
+[ext_resource type="Script" uid="uid://bt7431f6x63ny" path="res://Scripts/Inventory.gd" id="5_c0eh2"]
+[ext_resource type="Texture2D" uid="uid://c5dkx15s5ck46" path="res://Plants/Plantern/Plantern.webp" id="6_07rsv"]
 [ext_resource type="Script" uid="uid://cn8mg6gsspfo3" path="res://UI/PreGameMenu/PlantsMenu.gd" id="6_u35ah"]
 [ext_resource type="PackedScene" uid="uid://cxk052aer2hhw" path="res://ShaderMaterials/PlantCard.tscn" id="7_jy4q1"]
 
@@ -36,6 +39,12 @@ layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="UpperPanel/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="SunUI" type="TextureRect" parent="UpperPanel/HBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("2_jy4q1")
+expand_mode = 5
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="UpperPanel/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -85,11 +94,10 @@ layout_mode = 2
 [node name="ChooseYourPlant" type="GridContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 columns = 8
+script = ExtResource("5_c0eh2")
+plant = ExtResource("6_07rsv")
 
 [node name="MarginContainer" parent="PanelContainer/VBoxContainer/ChooseYourPlant" instance=ExtResource("7_jy4q1")]
-layout_mode = 2
-
-[node name="MarginContainer2" parent="PanelContainer/VBoxContainer/ChooseYourPlant" instance=ExtResource("7_jy4q1")]
 layout_mode = 2
 
 [node name="MarginContainer3" parent="PanelContainer/VBoxContainer/ChooseYourPlant" instance=ExtResource("7_jy4q1")]
@@ -98,9 +106,10 @@ layout_mode = 2
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer"]
+[node name="LetsRock" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 tooltip_text = "Will start the match"
 text = "LET'S ROCK"
 
 [connection signal="ready" from="PanelContainer" to="PanelContainer" method="_on_ready"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/LetsRock" to="PanelContainer" method="_on_lets_rock_pressed"]
