@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://benm3k1818qmn"]
+[gd_scene load_steps=17 format=3 uid="uid://benm3k1818qmn"]
 
 [ext_resource type="Script" uid="uid://bypsoqea517jf" path="res://Singleton/SunFallingFromSky.gd" id="2_cifyb"]
 [ext_resource type="Script" uid="uid://b752ti4kb0jnh" path="res://GridMap.gd" id="3_ywu53"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" uid="uid://cpsc4vp8f2abn" path="res://CardManager.gd" id="11_kalk7"]
 [ext_resource type="PackedScene" uid="uid://dw5srly0t1l75" path="res://Plants/Kernel-pult/kernelpult.tscn" id="12_xb4mg"]
 [ext_resource type="PackedScene" uid="uid://30wwmvjklo0c" path="res://Plants/Cherry-bomb/cherry_bomb.tscn" id="13_6t1o7"]
+[ext_resource type="PackedScene" uid="uid://bg1b3hicyqmly" path="res://Scenes/SelectedPlants.tscn" id="14_5qxwa"]
+[ext_resource type="Script" uid="uid://spddqgctdee5" path="res://Scenes/GameManager.gd" id="15_xc4hf"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_lckkt"]
 a = Vector2(-450.287, 14)
@@ -21,6 +23,7 @@ b = Vector2(717.928, 13)
 [node name="Node2D" type="Node2D"]
 
 [node name="PcComputer-PlantsVsZombies-Day" type="Sprite2D" parent="."]
+position = Vector2(571, 330)
 scale = Vector2(0.969, 1)
 texture = ExtResource("4_fk0de")
 script = ExtResource("2_cifyb")
@@ -91,28 +94,39 @@ script = ExtResource("10_h67cu")
 script = ExtResource("11_kalk7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(200, 0)
+anchor_mode = 0
+zoom = Vector2(1.2, 1.1)
+position_smoothing_enabled = true
 
 [node name="PlantSelection" parent="." instance=ExtResource("9_slshq")]
-offset_left = -100.0
-offset_top = -280.0
-offset_right = -100.0
-offset_bottom = -280.0
+offset_left = 100.0
+offset_top = 200.0
+offset_right = 100.0
+offset_bottom = 200.0
 scale = Vector2(2, 2)
 
 [node name="PlantFactory" type="Node2D" parent="."]
 script = ExtResource("10_isia7")
 
 [node name="Kernelpult2" parent="." instance=ExtResource("12_xb4mg")]
-position = Vector2(-226, 59)
+position = Vector2(348, 382)
 
 [node name="Kernelpult" parent="." instance=ExtResource("12_xb4mg")]
-position = Vector2(-316, 148)
+position = Vector2(348, 573)
 
 [node name="Kernelpult3" parent="." instance=ExtResource("12_xb4mg")]
-position = Vector2(-240, 232)
+position = Vector2(256, 482)
 
 [node name="CherryBomb2" parent="." instance=ExtResource("13_6t1o7")]
-position = Vector2(-162, 126)
+position = Vector2(398, 236)
+
+[node name="PlantSelection2" parent="." instance=ExtResource("14_5qxwa")]
+offset_bottom = 400.0
+
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("mainCamera")]
+script = ExtResource("15_xc4hf")
+mainCamera = NodePath("../Camera2D")
 
 [connection signal="area_entered" from="PcComputer-PlantsVsZombies-Day/GridMap" to="PcComputer-PlantsVsZombies-Day/GridMap" method="_on_area_entered"]
 [connection signal="timeout" from="PcComputer-PlantsVsZombies-Day/SunManager/SunFallTimer" to="PcComputer-PlantsVsZombies-Day" method="_on_sun_fall_timer_timeout"]
