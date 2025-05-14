@@ -24,7 +24,7 @@ func _on_ready() -> void:
 	#add_tween("")
 	print(get_window().size)
 	var transitionTime = 1.0
-	#add_tween("position", Vector2(self.position.x, get_window().size.y - self.size.y), 1.0)
+	add_tween("position", Vector2(self.position.x, get_window().size.y - self.size.y), 1.0)
 	#await get_tree().create_timer(transitionTime)
 	#self.set_anch
 
