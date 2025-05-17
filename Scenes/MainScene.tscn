@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dw5srly0t1l75" path="res://Plants/Kernel-pult/kernelpult.tscn" id="12_xb4mg"]
 [ext_resource type="PackedScene" uid="uid://30wwmvjklo0c" path="res://Plants/Cherry-bomb/cherry_bomb.tscn" id="13_6t1o7"]
 [ext_resource type="PackedScene" uid="uid://bg1b3hicyqmly" path="res://Scenes/SelectedPlants.tscn" id="14_5qxwa"]
-[ext_resource type="Script" path="res://Scenes/GameManager.gd" id="15_xc4hf"]
+[ext_resource type="Script" uid="uid://spddqgctdee5" path="res://Scenes/GameManager.gd" id="15_xc4hf"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_lckkt"]
 a = Vector2(-450.287, 14)
@@ -128,7 +128,8 @@ mainCamera = NodePath("../Camera2D")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PlantSelection2" parent="CanvasLayer" instance=ExtResource("14_5qxwa")]
-offset_bottom = 400.0
+offset_right = 9.0
+offset_bottom = -1.0
 
 [connection signal="area_entered" from="PcComputer-PlantsVsZombies-Day/GridMap" to="PcComputer-PlantsVsZombies-Day/GridMap" method="_on_area_entered"]
 [connection signal="timeout" from="PcComputer-PlantsVsZombies-Day/SunManager/SunFallTimer" to="PcComputer-PlantsVsZombies-Day" method="_on_sun_fall_timer_timeout"]

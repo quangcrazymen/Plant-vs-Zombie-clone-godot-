@@ -18,5 +18,3 @@ func _ready() -> void:
 	var caller = Callable(self,"changeGameState")
 	#caller.bind(GameState.ACTION_PHASE)
 	SignalManager.gameStateChanged.connect(caller)
-
-#func _process(delta: float) -> void:
