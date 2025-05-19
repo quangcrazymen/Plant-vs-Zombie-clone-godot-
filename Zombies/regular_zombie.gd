@@ -21,7 +21,8 @@ func _process(delta):
 
 
 func _on_body_area_entered(area):
-	print("Zombie gets hit, remaining health: {}",health)
+	print("Zombie 
+	ts hit, remaining health: {}",health)
 	dying()
 
 

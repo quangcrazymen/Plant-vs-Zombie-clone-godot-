@@ -18,3 +18,4 @@ func _ready() -> void:
 	var caller = Callable(self,"changeGameState")
 	#caller.bind(GameState.ACTION_PHASE)
 	SignalManager.gameStateChanged.connect(caller)
+	var zombies = get_tree().get_nodes_in_group("zombies")

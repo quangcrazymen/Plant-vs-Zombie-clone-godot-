@@ -17,11 +17,7 @@ shader = ExtResource("4_qgocd")
 
 [node name="PlantSelection" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 
 [node name="UpperPanel" type="PanelContainer" parent="."]
 layout_mode = 0
@@ -56,14 +52,14 @@ layout_mode = 2
 [node name="MarginContainer" parent="UpperPanel/HBoxContainer/SelectedPlant" instance=ExtResource("7_jy4q1")]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="." node_paths=PackedStringArray("target")]
+[node name="PlantSelectionPanel" type="PanelContainer" parent="." node_paths=PackedStringArray("target")]
 material = SubResource("ShaderMaterial_o8yxb")
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.216
 anchor_right = 0.681
 anchor_bottom = 1.0
-offset_top = 507.032
+offset_top = 674.0
 offset_right = 0.487915
 offset_bottom = 507.0
 script = ExtResource("6_u35ah")
@@ -71,45 +67,45 @@ target = NodePath(".")
 curve = SubResource("Curve_qowgc")
 transition_type = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PlantSelectionPanel"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PlantSelectionPanel/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Panel" type="Panel" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Panel" type="Panel" parent="PlantSelectionPanel/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="PlantSelectionPanel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "CHOOSE YOUR PLANTS!"
 label_settings = SubResource("LabelSettings_07rsv")
 
-[node name="Panel2" type="Panel" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Panel2" type="Panel" parent="PlantSelectionPanel/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
 
-[node name="ChooseYourPlant" type="GridContainer" parent="PanelContainer/VBoxContainer"]
+[node name="ChooseYourPlant" type="GridContainer" parent="PlantSelectionPanel/VBoxContainer"]
 layout_mode = 2
 columns = 8
 script = ExtResource("5_c0eh2")
 plant = ExtResource("6_07rsv")
 
-[node name="MarginContainer" parent="PanelContainer/VBoxContainer/ChooseYourPlant" instance=ExtResource("7_jy4q1")]
+[node name="MarginContainer" parent="PlantSelectionPanel/VBoxContainer/ChooseYourPlant" instance=ExtResource("7_jy4q1")]
 layout_mode = 2
 
-[node name="MarginContainer3" parent="PanelContainer/VBoxContainer/ChooseYourPlant" instance=ExtResource("7_jy4q1")]
+[node name="MarginContainer3" parent="PlantSelectionPanel/VBoxContainer/ChooseYourPlant" instance=ExtResource("7_jy4q1")]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PlantSelectionPanel/VBoxContainer"]
 layout_mode = 2
 
-[node name="LetsRock" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer"]
+[node name="LetsRock" type="Button" parent="PlantSelectionPanel/VBoxContainer/MarginContainer"]
 layout_mode = 2
 tooltip_text = "Will start the match"
 text = "LET'S ROCK"
 
-[connection signal="ready" from="PanelContainer" to="PanelContainer" method="_on_ready"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/LetsRock" to="PanelContainer" method="_on_lets_rock_pressed"]
+[connection signal="ready" from="PlantSelectionPanel" to="PlantSelectionPanel" method="_on_ready"]
+[connection signal="pressed" from="PlantSelectionPanel/VBoxContainer/MarginContainer/LetsRock" to="PlantSelectionPanel" method="_on_lets_rock_pressed"]

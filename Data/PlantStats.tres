@@ -1,0 +1,5 @@
+[gd_resource type="PackedDataContainer" format=3 uid="uid://cmee273jl7qo6"]
+
+[resource]
+metadata/Data = 0
+metadata/Stats = PackedByteArray(34, 34, 68, 68, 12, 15)

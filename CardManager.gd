@@ -19,12 +19,12 @@ func _ready():
 
 func _process(delta):
 	if plant_image:
-		plant_image.position = get_global_mouse_position()
+		plant_image.global_position = get_global_mouse_position()
 
 func on_card_clicked(text):
 	plant_image = plant_image_res.instantiate()
 	plant_image.get_child(0).texture = load("res://Plants/%s/%sImage.png"%[text,text])
-	plant_image.position = get_global_mouse_position()
+	plant_image.global_position = get_global_mouse_position()
 	pc_computer_plants_vs_zombies_day.add_child(plant_image)
 	
 func on_card_released(plant_name):

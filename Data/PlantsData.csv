@@ -1,0 +1,3 @@
+PlantName,Durability,CardCooldown,AbilityCooldown,FireRange,Cost
+Peashooter,50,5,2,10,100
+Sunflower,20,3,3,0,50

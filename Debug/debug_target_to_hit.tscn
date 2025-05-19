@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://n8iagan6cr6d"]
 
-[ext_resource type="Texture2D" uid="uid://dt42orq40j63w" path="res://Plants/Kernel-pult/TargetToHit.png" id="1_uypbh"]
+[ext_resource type="Texture2D" uid="uid://dt42orq40j63w" path="res://Plants/Kernelpult/TargetToHit.png" id="1_uypbh"]
 
 [node name="Sprite2D" type="Sprite2D"]
 scale = Vector2(0.5, 0.5)

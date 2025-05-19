@@ -2,7 +2,7 @@ extends Control
 
 @onready var plant_selection = $HBoxContainer
 @onready var sun_manager = $"../PcComputer-PlantsVsZombies-Day/SunManager"
-@export var plant_card: PackedScene = preload("res://UI/PlantCard.tscn")
+#@export var plant_card: PackedScene = preload("res://UI/PlantCard.tscn")
 
 var plants_in_game = {
 	"Peashooter": 100,
@@ -13,15 +13,15 @@ var plants_in_game = {
 
 func _ready():
 	for plant in plants_in_game:
-		var new_card = plant_card.instantiate()
+		#var new_card = plant_card.instantiate()
 		var name_of_resource_card_file = "res://Plants/%s/%sCard.png" % [plant,plant]
 		var name_of_resource_disabled_card_file = "res://Plants/%s/%sCardDisable.png" % [plant,plant]		
 		# TODO: Change it using shader
-		new_card.texture_normal = load(name_of_resource_card_file)
-		new_card.texture_pressed = load(name_of_resource_card_file)		
-		new_card.texture_disabled = load(name_of_resource_disabled_card_file)		
-		new_card.plant_name = plant
-		plant_selection.add_child(new_card)
+		#new_card.texture_normal = load(name_of_resource_card_file)
+		#new_card.texture_pressed = load(name_of_resource_card_file)		
+		#new_card.texture_disabled = load(name_of_resource_disabled_card_file)		
+		#new_card.plant_name = plant
+		#plant_selection.add_child(new_card)
 
 func _physics_process(_delta):
 	update_card_state()
